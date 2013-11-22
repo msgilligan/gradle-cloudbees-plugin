@@ -96,7 +96,7 @@ The CloudBeesAppDeployArchive uses the following additional properties in the `c
 
 Note:: CloudBees runtime parameters should prepend the String `runtime.` to the key, e.g. `runtime.classpath`.
 
-Warning:: The `deltaDeploy` option has not been tested. Use at your own risk.
+Note:: The `deltaDeploy` option is new, please let us know how it works.
 
 === Example
 
