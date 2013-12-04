@@ -5,7 +5,8 @@ image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail
 
 The plugin provides support for managing applications and databases on link:http://www.cloudbees.com/run.cb[CloudBees RUN@cloud].
 Under covers the plugin communicates with the CloudBees backend via the link:https://github.com/cloudbees/cloudbees-api-client[CloudBees API client].
-The code of the plugin is featured in chapter 8 of the book link:http://www.manning.com/muschko["Gradle in Action"] published by Manning.
+
+This plugin was originally created by https://github.com/bmuschko[Benjamin Muschko] as an example for the book link:http://www.manning.com/muschko["Gradle in Action"].  For more info, see <<plugin-history>>.
 
 == Usage
 
@@ -140,3 +141,8 @@ is recommended to set them in your `~/.gradle/gradle.properties` file. The follo
 cloudbees.api.key = yourApiKey
 cloudbees.api.secret = yourApiSecret
 ----
+
+[#plugin-history]
+== Plugin History
+
+This plugin was created by https://github.com/bmuschko[Benjamin Muschko] for Chapter 8 of the book link:http://www.manning.com/muschko["Gradle in Action"].  To find the exact code featured in the book visit the https://github.com/bmuschko/gradle-in-action-source[gradle-in-action-source] repository.
