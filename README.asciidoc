@@ -6,7 +6,7 @@ image:https://jenkins-ci.org/sites/default/files/images/CloudBees-logo.thumbnail
 The plugin provides support for managing applications and databases on link:http://www.cloudbees.com/run.cb[CloudBees RUN@cloud].
 Under covers the plugin communicates with the CloudBees backend via the link:https://github.com/cloudbees/cloudbees-api-client[CloudBees API client].
 
-This plugin was originally created by https://github.com/bmuschko[Benjamin Muschko] as an example for the book link:http://www.manning.com/muschko["Gradle in Action"].  For more info, see <<plugin-history>>.
+This plugin was originally created by https://github.com/bmuschko[Benjamin Muschko] as an example for the book link:http://www.manning.com/muschko["Gradle in Action"].  For more info, see <<plugin-history, Plugin History>>.
 
 == Usage
 
@@ -142,7 +142,7 @@ cloudbees.api.key = yourApiKey
 cloudbees.api.secret = yourApiSecret
 ----
 
-[#plugin-history]
+[[plugin-history]]
 == Plugin History
 
 This plugin was created by https://github.com/bmuschko[Benjamin Muschko] for Chapter 8 of the book link:http://www.manning.com/muschko["Gradle in Action"].  To find the exact code featured in the book visit the https://github.com/bmuschko/gradle-in-action-source[gradle-in-action-source] repository.
