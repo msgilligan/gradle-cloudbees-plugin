@@ -2,17 +2,21 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'nexus'
 apply plugin: 'maven'
+apply plugin: 'bintray'
+apply plugin: 'maven-publish'
 
 group = 'org.gradle.api.plugins'
-version = '0.1.1-SNAPSHOT'
+version = '0.1.1'
 
 buildscript {
     repositories {
+        maven { url 'http://jcenter.bintray.com' }
         mavenCentral()
     }
 
     dependencies {
         classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.3'
     }
 }
 
@@ -56,6 +60,41 @@ idea.project {
 task wrapper(type: Wrapper) {
     gradleVersion = '1.4'
 }
+
+// Use publishGsheetsPublicationToMavenLocal task to publish to Maven local repo
+publishing {
+    publications {
+        plugin(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+ext.dry = false  // dryRun flag for bintray (others?)
+
+bintrayUpload.dependsOn jar
+
+ext {
+    dry = false // dryRun flag for bintray (and anything else?)
+    myBintray = [ apiKey: binTrayAPIKey ]   // Set 'binTrayAPIKey' in ~/.gradle/gradle.properties
+}
+
+bintray {
+    user = 'msgilligan'
+    key = myBintray.apiKey
+//    configurations = ['deployables'] // When uploading configuration files
+    publications = ['plugin'] // When uploading Maven-based publication files
+    pkg {
+        repo = 'maven'
+//        userOrg = 'myorg' // an optional organization name when the repo belongs to one of the user's orgs
+        name = 'gradle-cloudbees-plugin'
+        desc = 'SNAPSHOT version of gradle-cloudbees-plugin'
+        licenses = ['Apache-2.0']
+        labels = ['gradle', 'groovy', 'cloudbees', 'deployment']
+    }
+    dryRun = dry // whether to run this as dry-run, without deploying
+}
+
 
 modifyPom {
     project {
